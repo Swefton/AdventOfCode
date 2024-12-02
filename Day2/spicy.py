@@ -5,7 +5,7 @@ def f(re):
     dec = all(0 < (re[i] - re[i+1]) < 4 for i in range(len(re) - 1))
     return inc or dec
 
-def m(fn):
+def m(fn, p2):
     with open(fn, "r") as file:
         lines = file.readlines()
 
@@ -17,13 +17,14 @@ def m(fn):
         if f(re):
             o += 1
             continue
-
-        for i in range(len(re)):
-            subre = re[:i] + re[i+1:]
-            if f(subre):
-                o += 1
-                break
+        
+        if p2:
+            for i in range(len(re)):
+                subre = re[:i] + re[i+1:]
+                if f(subre):
+                    o += 1
+                    break
 
     print(o)
 
-m(sys.argv[1])
+m(sys.argv[1], False)
