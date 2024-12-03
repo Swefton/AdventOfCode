@@ -1,4 +1,4 @@
-f = open("input2.txt")
+f = open("input1.txt")
 
 safe_words = 0
 new_safe_words = 0
